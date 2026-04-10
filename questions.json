@@ -1,0 +1,173 @@
+[
+  {
+    "id": 1,
+    "type": "multiple",
+    "question": "For your daily coffee habit, which option usually creates the least trash?",
+    "answers": [
+      {"text": "Single-use pod each day", "correct": false, "explanation": "Pods are convenient but usually create extra packaging waste."},
+      {"text": "Disposable cup from a cafe", "correct": false, "explanation": "Disposable cups and lids are mostly single-use waste."},
+      {"text": "Reusable mug and home brew", "correct": true, "explanation": "Reusable drinkware avoids daily single-use packaging."},
+      {"text": "Canned iced coffee", "correct": false, "explanation": "Single-use cans still increase packaging flow."}
+    ]
+  },
+  {
+    "id": 2,
+    "type": "estimation",
+    "question": "Estimate: How many single-use plastic water bottles could one person avoid per year by using a refillable bottle every workday?",
+    "hint": "Assume about 5 workdays per week.",
+    "min": 0,
+    "max": 500,
+    "correctValue": 260,
+    "acceptableRange": 40,
+    "placeholder": "Enter a number, e.g. 260",
+    "explanation": "Using one reusable bottle instead of one disposable bottle per workday adds up quickly over a year."
+  },
+  {
+    "id": 3,
+    "type": "sorting",
+    "question": "Sort these actions from lowest to highest trash impact.",
+    "hint": "Put least wasteful action first.",
+    "items": [
+      "Buy single-serve snack packs",
+      "Bring lunch in reusable containers",
+      "Order takeout with disposable cutlery",
+      "Meal prep with bulk ingredients"
+    ],
+    "correctOrder": [
+      "Bring lunch in reusable containers",
+      "Meal prep with bulk ingredients",
+      "Order takeout with disposable cutlery",
+      "Buy single-serve snack packs"
+    ],
+    "explanation": "Reusable and bulk-prep habits usually reduce packaging, while single-serve convenience formats increase it."
+  },
+  {
+    "id": 4,
+    "type": "multiple",
+    "question": "Which e-commerce behavior typically reduces packaging waste most?",
+    "answers": [
+      {"text": "Place several separate small orders", "correct": false, "explanation": "Separate shipments typically mean more boxes and fillers."},
+      {"text": "Consolidate purchases into fewer deliveries", "correct": true, "explanation": "Fewer shipments usually cut total packaging material."},
+      {"text": "Always request gift wrap", "correct": false, "explanation": "Gift wrap adds extra disposable materials."},
+      {"text": "Use express shipping for each item", "correct": false, "explanation": "Faster split deliveries can increase packaging count."}
+    ]
+  },
+  {
+    "id": 5,
+    "type": "bin",
+    "question": "Bin Challenge: choose the right bin for each item.",
+    "hint": "Rules update by country selector at top.",
+    "items": ["Banana peel", "Clean cardboard box", "Glass bottle", "Plastic drink bottle"],
+    "binOptions": {
+      "netherlands": ["GFT", "Paper", "Glass", "PMD", "Residual"],
+      "belgium": ["Organic", "Paper/Cardboard", "Glass", "PMD", "Residual"]
+    },
+    "correctByCountry": {
+      "netherlands": {
+        "Banana peel": "GFT",
+        "Clean cardboard box": "Paper",
+        "Glass bottle": "Glass",
+        "Plastic drink bottle": "PMD"
+      },
+      "belgium": {
+        "Banana peel": "Organic",
+        "Clean cardboard box": "Paper/Cardboard",
+        "Glass bottle": "Glass",
+        "Plastic drink bottle": "PMD"
+      }
+    },
+    "explanation": "Great sorting reduces contamination and improves recycling quality."
+  },
+  {
+    "id": 6,
+    "type": "estimation",
+    "question": "Estimate: By how many disposable coffee cups could a team of 20 reduce waste in one month if each member switches to a reusable mug for 10 workdays?",
+    "hint": "Think: people x days.",
+    "min": 0,
+    "max": 500,
+    "correctValue": 200,
+    "acceptableRange": 20,
+    "placeholder": "Enter a number, e.g. 200",
+    "explanation": "Small personal habits scale strongly when an entire team adopts them."
+  },
+  {
+    "id": 7,
+    "type": "bin",
+    "question": "Bin Challenge: classify these tricky items.",
+    "hint": "Use the selected country rules.",
+    "items": ["Pizza box with grease", "Clean aluminum can", "Broken ceramic mug", "Old newspaper"],
+    "binOptions": {
+      "netherlands": ["Paper", "PMD", "Glass", "Textile", "Residual"],
+      "belgium": ["Paper/Cardboard", "PMD", "Glass", "Textile", "Residual"]
+    },
+    "correctByCountry": {
+      "netherlands": {
+        "Pizza box with grease": "Residual",
+        "Clean aluminum can": "PMD",
+        "Broken ceramic mug": "Residual",
+        "Old newspaper": "Paper"
+      },
+      "belgium": {
+        "Pizza box with grease": "Residual",
+        "Clean aluminum can": "PMD",
+        "Broken ceramic mug": "Residual",
+        "Old newspaper": "Paper/Cardboard"
+      }
+    },
+    "explanation": "Food contamination and material type often decide whether packaging can be recycled."
+  },
+  {
+    "id": 8,
+    "type": "sorting",
+    "question": "Sort these product choices from best to worst for reducing long-term trash.",
+    "items": [
+      "Repair a broken appliance",
+      "Buy a durable replacement with spare parts",
+      "Buy the cheapest replacement every year",
+      "Use single-use alternatives"
+    ],
+    "correctOrder": [
+      "Repair a broken appliance",
+      "Buy a durable replacement with spare parts",
+      "Buy the cheapest replacement every year",
+      "Use single-use alternatives"
+    ],
+    "explanation": "Keeping products in use longer is usually the strongest waste-reduction strategy."
+  },
+  {
+    "id": 9,
+    "type": "multiple",
+    "question": "Which meeting setup most effectively cuts event-related trash?",
+    "answers": [
+      {"text": "Single-use cups and bottled water", "correct": false, "explanation": "Single-use event items add immediate high-volume waste."},
+      {"text": "Reusable glasses and water dispensers", "correct": true, "explanation": "Reusable service setup avoids most event packaging waste."},
+      {"text": "Individually wrapped snacks", "correct": false, "explanation": "Individual wrapping increases packaging per person."},
+      {"text": "Disposable cutlery with compostable labels", "correct": false, "explanation": "Even compostables can become residual waste in mixed streams."}
+    ]
+  },
+  {
+    "id": 10,
+    "type": "bin",
+    "question": "Final Bin Challenge: where does each item belong?",
+    "items": ["Yogurt cup (rinsed)", "Tea bag", "Wine bottle", "Shipping box"],
+    "binOptions": {
+      "netherlands": ["GFT", "Paper", "Glass", "PMD", "Residual"],
+      "belgium": ["Organic", "Paper/Cardboard", "Glass", "PMD", "Residual"]
+    },
+    "correctByCountry": {
+      "netherlands": {
+        "Yogurt cup (rinsed)": "PMD",
+        "Tea bag": "GFT",
+        "Wine bottle": "Glass",
+        "Shipping box": "Paper"
+      },
+      "belgium": {
+        "Yogurt cup (rinsed)": "PMD",
+        "Tea bag": "Organic",
+        "Wine bottle": "Glass",
+        "Shipping box": "Paper/Cardboard"
+      }
+    },
+    "explanation": "Accurate sorting keeps recyclable streams cleaner and raises recovery rates."
+  }
+]

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trash Impact Lifestyle Quiz</title>
+  <meta name="description" content="A sustainability quiz about lifestyle choices that affect household trash output.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <main class="app-shell">
+    <section class="country-selector card">
+      <p class="eyebrow">Recycling Rules Region</p>
+      <div class="country-row">
+        <span id="country-left" class="country-label active">Netherlands</span>
+        <input id="country-slider" class="country-slider" type="range" min="0" max="1" step="1" value="0" aria-label="Select recycling rules country">
+        <span id="country-right" class="country-label">Belgium</span>
+      </div>
+    </section>
+
+    <header class="hero">
+      <p class="eyebrow">Workplace Sustainability Challenge</p>
+      <h1>How Much Trash Does Your Lifestyle Create?</h1>
+      <p class="subtitle">Play 10 mixed question types: multiple choice, estimation, sorting, and bin-selection adapted to Netherlands or Belgium rules.</p>
+      <button id="start-btn" class="btn btn-primary">Start Quiz</button>
+    </header>
+
+    <section id="quiz-card" class="card hidden" aria-live="polite">
+      <div class="quiz-top">
+        <p id="progress-text" class="progress-text"></p>
+        <div class="progress-track" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <h2 id="question-text" class="question-text"></h2>
+      <p id="question-hint" class="question-hint hidden"></p>
+      <div id="interaction" class="answers"></div>
+
+      <div id="feedback" class="feedback hidden"></div>
+
+      <div class="actions-row">
+        <button id="next-btn" class="btn btn-secondary hidden">Next Question</button>
+      </div>
+    </section>
+
+    <section id="result-card" class="card hidden" aria-live="polite">
+      <p class="eyebrow">Your Result</p>
+      <h2 id="score-title"></h2>
+      <p id="score-summary" class="result-summary"></p>
+      <ul id="tip-list" class="tips"></ul>
+      <button id="restart-btn" class="btn btn-primary">Play Again</button>
+    </section>
+
+    <div id="fx-layer" class="fx-layer" aria-hidden="true"></div>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
