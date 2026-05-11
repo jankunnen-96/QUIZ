@@ -431,6 +431,12 @@ h1 {
   color: var(--ink);
 }
 
+.champions-loading {
+  margin: 0;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
 .champion-you {
   border-color: var(--primary);
   background: rgba(0, 196, 179, 0.12);

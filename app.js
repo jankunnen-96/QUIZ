@@ -1,3 +1,6 @@
+// Paste your Google Apps Script web app URL here (see google-apps-script.js for setup)
+const CHAMPIONS_SHEET_URL = "https://script.google.com/macros/s/AKfycbw_oep8Lo1f8ec55w0CEzJcgye-YBTQVgJ_nLVdh2HrFZMOvAFfmUAokV2zMdg01P1Y/exec";
+
 const startBtn = document.getElementById("start-btn");
 const quizCard = document.getElementById("quiz-card");
 const resultCard = document.getElementById("result-card");
@@ -531,26 +534,36 @@ function getResultBand(value) {
   };
 }
 
-function getChampions() {
+async function fetchChampions() {
+  if (!CHAMPIONS_SHEET_URL) {
+    return [];
+  }
   try {
-    return JSON.parse(localStorage.getItem("circularityChampions") || "[]");
+    const res = await fetch(CHAMPIONS_SHEET_URL);
+    if (!res.ok) {
+      return [];
+    }
+    return await res.json();
   } catch {
     return [];
   }
 }
 
-function saveChampion(name, score) {
-  const champions = getChampions();
-  const exists = champions.some(
-    (c) => c.name.toLowerCase() === name.toLowerCase()
-  );
-  if (!exists) {
-    champions.push({ name, score, date: new Date().toISOString() });
-    localStorage.setItem("circularityChampions", JSON.stringify(champions));
+async function saveChampion(name, scoreValue) {
+  if (!CHAMPIONS_SHEET_URL) {
+    return;
+  }
+  try {
+    await fetch(CHAMPIONS_SHEET_URL, {
+      method: "POST",
+      body: JSON.stringify({ name, score: scoreValue }),
+    });
+  } catch {
+    // silent fail
   }
 }
 
-function showResults() {
+async function showResults() {
   quizCard.classList.add("hidden");
   resultCard.classList.remove("hidden");
 
@@ -567,14 +580,14 @@ function showResults() {
     tipList.appendChild(li);
   });
 
+  // Save champion first, then fetch the full list
   if (result.key === "champion" && playerName) {
-    saveChampion(playerName, score);
+    await saveChampion(playerName, score);
   }
 
   const championsWall = document.getElementById("champions-wall");
-  const champions = getChampions();
 
-  if (champions.length > 0) {
+  if (CHAMPIONS_SHEET_URL) {
     championsWall.classList.remove("hidden");
     championsWall.innerHTML = "";
 
@@ -583,31 +596,36 @@ function showResults() {
     heading.textContent = "\uD83C\uDFC6 Circular Champions Wall";
     championsWall.appendChild(heading);
 
-    const list = document.createElement("ul");
-    list.className = "champions-list";
-    champions.forEach((c) => {
-      const li = document.createElement("li");
-      li.className = "champion-entry";
-      if (c.name.toLowerCase() === playerName.toLowerCase() && result.key === "champion") {
-        li.classList.add("champion-you");
-      }
-      li.textContent = c.name;
-      list.appendChild(li);
-    });
-    championsWall.appendChild(list);
+    const loading = document.createElement("p");
+    loading.className = "champions-loading";
+    loading.textContent = "Loading champions\u2026";
+    championsWall.appendChild(loading);
+
+    const champions = await fetchChampions();
+    loading.remove();
+
+    if (champions.length > 0) {
+      const list = document.createElement("ul");
+      list.className = "champions-list";
+      champions.forEach((c) => {
+        const li = document.createElement("li");
+        li.className = "champion-entry";
+        if (c.name.toLowerCase() === playerName.toLowerCase() && result.key === "champion") {
+          li.classList.add("champion-you");
+        }
+        li.textContent = c.name;
+        list.appendChild(li);
+      });
+      championsWall.appendChild(list);
+    } else {
+      const empty = document.createElement("p");
+      empty.className = "champions-loading";
+      empty.textContent = "No champions yet \u2014 be the first!";
+      championsWall.appendChild(empty);
+    }
   } else {
     championsWall.classList.add("hidden");
   }
-
-  localStorage.setItem(
-    "circularityChallengeLastResult",
-    JSON.stringify({
-      date: new Date().toISOString(),
-      score,
-      maxScore,
-      name: playerName
-    })
-  );
 }
 
 function handleNext() {
