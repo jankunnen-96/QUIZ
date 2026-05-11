@@ -1,173 +1,131 @@
 [
   {
+    "id": 0,
+    "type": "nameInput",
+    "question": "Welcome! What is your name?",
+    "hint": "Circular Champions are celebrated at the end of the quiz!",
+    "placeholder": "Enter your name"
+  },
+  {
     "id": 1,
     "type": "multiple",
-    "question": "For your daily coffee habit, which option usually creates the least trash?",
+    "question": "Your office chair breaks. Which option usually keeps the most value in the system?",
     "answers": [
-      {"text": "Single-use pod each day", "correct": false, "explanation": "Pods are convenient but usually create extra packaging waste."},
-      {"text": "Disposable cup from a cafe", "correct": false, "explanation": "Disposable cups and lids are mostly single-use waste."},
-      {"text": "Reusable mug and home brew", "correct": true, "explanation": "Reusable drinkware avoids daily single-use packaging."},
-      {"text": "Canned iced coffee", "correct": false, "explanation": "Single-use cans still increase packaging flow."}
+      {"text": "Throw it away and buy a new one", "correct": false, "explanation": "Discarding and buying new is a linear approach — extract, use, dispose — and loses all the value embedded in the existing chair."},
+      {"text": "Recycle the metal/plastic parts immediately", "correct": false, "explanation": "Recycling is valuable, but repair usually keeps the product at a higher value level for longer."},
+      {"text": "Repair or replace the broken component", "correct": true, "explanation": "Circularity is about keeping products and materials in use as long as possible through sharing, leasing, reuse, repair, refurbishing and recycling. Recycling is valuable, but repair usually keeps the product at a higher value level for longer."},
+      {"text": "Buy a cheaper chair with no spare parts", "correct": false, "explanation": "A cheap replacement with no spare parts is designed for disposal, not circularity — it shortens the product lifecycle."}
     ]
   },
   {
     "id": 2,
-    "type": "estimation",
-    "question": "Estimate: How many single-use plastic water bottles could one person avoid per year by using a refillable bottle every workday?",
-    "hint": "Assume about 5 workdays per week.",
-    "min": 0,
-    "max": 500,
-    "correctValue": 260,
-    "acceptableRange": 40,
-    "placeholder": "Enter a number, e.g. 260",
-    "explanation": "Using one reusable bottle instead of one disposable bottle per workday adds up quickly over a year."
+    "type": "multiple",
+    "question": "Producing aluminium from recycled aluminium uses roughly how much energy compared with producing it from virgin raw materials?",
+    "answers": [
+      {"text": "About the same amount", "correct": false, "explanation": "Recycling aluminium is far more efficient. It can be recycled using less than 5% of the energy needed to make the original product."},
+      {"text": "About 50%", "correct": false, "explanation": "The savings are much larger. Aluminium can be recycled using less than 5% of the energy needed to make the original product."},
+      {"text": "Less than 5%", "correct": true, "explanation": "Aluminium can be recycled using less than 5% of the energy needed to make the original product."},
+      {"text": "More energy, but less water", "correct": false, "explanation": "Recycling aluminium uses dramatically less energy — less than 5% — and is one of the strongest cases for material recycling."}
+    ]
   },
   {
     "id": 3,
-    "type": "sorting",
-    "question": "Sort these actions from lowest to highest trash impact.",
-    "hint": "Put least wasteful action first.",
-    "items": [
-      "Buy single-serve snack packs",
-      "Bring lunch in reusable containers",
-      "Order takeout with disposable cutlery",
-      "Meal prep with bulk ingredients"
-    ],
-    "correctOrder": [
-      "Bring lunch in reusable containers",
-      "Meal prep with bulk ingredients",
-      "Order takeout with disposable cutlery",
-      "Buy single-serve snack packs"
-    ],
-    "explanation": "Reusable and bulk-prep habits usually reduce packaging, while single-serve convenience formats increase it."
+    "type": "factCard",
+    "text": "Did you know? Global circularity is only 6.9% — more than 90% of materials are still linear (extract-use-dispose)."
   },
   {
     "id": 4,
-    "type": "multiple",
-    "question": "Which e-commerce behavior typically reduces packaging waste most?",
+    "type": "behaviour",
+    "question": "In the last 6 months, how often did you choose second-hand, refurbished or repaired instead of buying new?",
+    "hint": "This is a self-assessment question — every honest answer counts.",
     "answers": [
-      {"text": "Place several separate small orders", "correct": false, "explanation": "Separate shipments typically mean more boxes and fillers."},
-      {"text": "Consolidate purchases into fewer deliveries", "correct": true, "explanation": "Fewer shipments usually cut total packaging material."},
-      {"text": "Always request gift wrap", "correct": false, "explanation": "Gift wrap adds extra disposable materials."},
-      {"text": "Use express shipping for each item", "correct": false, "explanation": "Faster split deliveries can increase packaging count."}
+      {"text": "Never", "score": 0, "explanation": "No worries — awareness is the first step. Reuse and repair are often more powerful than recycling because they prevent a new product from being manufactured in the first place."},
+      {"text": "Once", "score": 1, "explanation": "A good start! Reuse and repair are often more powerful than recycling because they prevent a new product from being manufactured in the first place."},
+      {"text": "A few times", "score": 2, "explanation": "Nice habit forming! Reuse and repair are often more powerful than recycling because they prevent a new product from being manufactured in the first place."},
+      {"text": "Whenever it was a realistic option", "score": 3, "explanation": "That's the circular mindset! Reuse and repair prevent new products from being manufactured — source reduction and reuse are considered by EPA to be highly effective ways to conserve natural resources, reduce environmental impact and save money."}
     ]
   },
   {
     "id": 5,
-    "type": "bin",
-    "question": "Bin Challenge: choose the right bin for each item.",
-    "hint": "Rules update by country selector at top.",
-    "items": ["Banana peel", "Clean cardboard box", "Glass bottle", "Plastic drink bottle"],
-    "binOptions": {
-      "netherlands": ["GFT", "Paper", "Glass", "PMD", "Residual"],
-      "belgium": ["Organic", "Paper/Cardboard", "Glass", "PMD", "Residual"]
-    },
-    "correctByCountry": {
-      "netherlands": {
-        "Banana peel": "GFT",
-        "Clean cardboard box": "Paper",
-        "Glass bottle": "Glass",
-        "Plastic drink bottle": "PMD"
-      },
-      "belgium": {
-        "Banana peel": "Organic",
-        "Clean cardboard box": "Paper/Cardboard",
-        "Glass bottle": "Glass",
-        "Plastic drink bottle": "PMD"
-      }
-    },
-    "explanation": "Great sorting reduces contamination and improves recycling quality."
+    "type": "multiple",
+    "question": "How much lower is the climate impact of buying a second-hand garment compared to buying new (with comparable use)?",
+    "answers": [
+      {"text": "10–15% lower", "correct": false, "explanation": "The impact is larger than that. Research shows buying second-hand clothing leads to up to 42% lower climate and energy impact compared to new."},
+      {"text": "20–25% lower", "correct": false, "explanation": "Close, but the savings are even bigger. Research shows buying second-hand clothing leads to up to 42% lower climate and energy impact compared to new."},
+      {"text": "Up to 42% lower", "correct": true, "explanation": "Research shows that buying second-hand clothing in the same use scenario leads to up to 42% lower climate and energy impact, and 35–53% lower water footprint compared to new. Reuse is especially valuable for garments with high production impact, such as sweaters and jeans."},
+      {"text": "Up to 70% lower", "correct": false, "explanation": "Not quite that high. Research shows the figure is up to 42% lower climate and energy impact, and 35–53% lower water footprint compared to new."}
+    ]
   },
   {
     "id": 6,
-    "type": "estimation",
-    "question": "Estimate: By how many disposable coffee cups could a team of 20 reduce waste in one month if each member switches to a reusable mug for 10 workdays?",
-    "hint": "Think: people x days.",
-    "min": 0,
-    "max": 500,
-    "correctValue": 200,
-    "acceptableRange": 20,
-    "placeholder": "Enter a number, e.g. 200",
-    "explanation": "Small personal habits scale strongly when an entire team adopts them."
+    "type": "factCard",
+    "text": "Recycling 10 plastic bottles saves enough energy to power a laptop for more than 25 hours."
   },
   {
     "id": 7,
-    "type": "bin",
-    "question": "Bin Challenge: classify these tricky items.",
-    "hint": "Use the selected country rules.",
-    "items": ["Pizza box with grease", "Clean aluminum can", "Broken ceramic mug", "Old newspaper"],
-    "binOptions": {
-      "netherlands": ["Paper", "PMD", "Glass", "Textile", "Residual"],
-      "belgium": ["Paper/Cardboard", "PMD", "Glass", "Textile", "Residual"]
-    },
-    "correctByCountry": {
-      "netherlands": {
-        "Pizza box with grease": "Residual",
-        "Clean aluminum can": "PMD",
-        "Broken ceramic mug": "Residual",
-        "Old newspaper": "Paper"
-      },
-      "belgium": {
-        "Pizza box with grease": "Residual",
-        "Clean aluminum can": "PMD",
-        "Broken ceramic mug": "Residual",
-        "Old newspaper": "Paper/Cardboard"
-      }
-    },
-    "explanation": "Food contamination and material type often decide whether packaging can be recycled."
+    "type": "multiple",
+    "question": "Going vegetarian for a year can save roughly enough CO₂e to offset the production emissions of…",
+    "answers": [
+      {"text": "Eight coffee mugs", "correct": false, "explanation": "The savings are much larger. Switching from a medium-meat diet to a vegetarian diet saves about 1,230 kg CO₂e per year — comparable to the production of more than 4 laptops."},
+      {"text": "Three laptop sleeves", "correct": false, "explanation": "Think bigger. Switching from a medium-meat diet to a vegetarian diet saves about 1,230 kg CO₂e per year — comparable to the production of more than 4 laptops."},
+      {"text": "Four new laptops", "correct": true, "explanation": "Based on UK dietary emissions data, switching from a medium-meat diet to a vegetarian diet saves about 1,230 kg CO₂e per year. Depending on the laptop model, production emissions can be around 280 kg CO₂e, so that is comparable to the production of more than 4 laptops."},
+      {"text": "An entire office building", "correct": false, "explanation": "That would be great, but the actual savings are more modest. Switching from a medium-meat diet to a vegetarian diet saves about 1,230 kg CO₂e per year — comparable to the production of more than 4 laptops."}
+    ]
   },
   {
     "id": 8,
-    "type": "sorting",
-    "question": "Sort these product choices from best to worst for reducing long-term trash.",
-    "items": [
-      "Repair a broken appliance",
-      "Buy a durable replacement with spare parts",
-      "Buy the cheapest replacement every year",
-      "Use single-use alternatives"
-    ],
-    "correctOrder": [
-      "Repair a broken appliance",
-      "Buy a durable replacement with spare parts",
-      "Buy the cheapest replacement every year",
-      "Use single-use alternatives"
-    ],
-    "explanation": "Keeping products in use longer is usually the strongest waste-reduction strategy."
+    "type": "multiple",
+    "question": "How much CO₂e do you save per year if you replace a 10 km daily round trip to the office by car with a regular bicycle?",
+    "answers": [
+      {"text": "100 kg CO₂e", "correct": false, "explanation": "The savings are larger. A regular bicycle emits around 21 g CO₂e/km vs. 271 g CO₂e/km for a car. Over 250 working days and 10 km, that's approximately 625 kg CO₂e saved per year."},
+      {"text": "250 kg CO₂e", "correct": false, "explanation": "Higher than that. A regular bicycle emits around 21 g CO₂e/km vs. 271 g CO₂e/km for a car. Over 250 working days and 10 km, that's approximately 625 kg CO₂e saved per year."},
+      {"text": "625 kg CO₂e", "correct": true, "explanation": "According to the European Cyclists' Federation, a regular bicycle emits around 21 g CO₂e per passenger-km (including production, maintenance and food). A car emits around 271 g CO₂e per passenger-km. For a 10 km round trip over 250 working days: (271 − 21) × 10 × 250 = 625,000 g ≈ 625 kg CO₂e saved per year — about 92% less emissions than driving."},
+      {"text": "1,000 kg CO₂e", "correct": false, "explanation": "Not quite that high. The actual saving is approximately 625 kg CO₂e per year, based on the difference between car (271 g/km) and bicycle (21 g/km) emissions over 250 working days."}
+    ]
   },
   {
     "id": 9,
     "type": "multiple",
-    "question": "Which meeting setup most effectively cuts event-related trash?",
+    "question": "Why can a phone have a larger material footprint than its physical weight suggests?",
     "answers": [
-      {"text": "Single-use cups and bottled water", "correct": false, "explanation": "Single-use event items add immediate high-volume waste."},
-      {"text": "Reusable glasses and water dispensers", "correct": true, "explanation": "Reusable service setup avoids most event packaging waste."},
-      {"text": "Individually wrapped snacks", "correct": false, "explanation": "Individual wrapping increases packaging per person."},
-      {"text": "Disposable cutlery with compostable labels", "correct": false, "explanation": "Even compostables can become residual waste in mixed streams."}
+      {"text": "Because the packaging is sometimes heavier than the phone itself", "correct": false, "explanation": "Packaging weight is not the main factor. The Circularity Gap methodology uses Raw Material Consumption because products often require far more raw materials than their final weight suggests throughout the supply chain."},
+      {"text": "Because raw materials used in extraction, processing and production are not visible in the final product", "correct": true, "explanation": "The Circularity Gap methodology uses Raw Material Consumption because products often require far more raw materials than their final weight suggests; a smartphone weighs little, but requires many more raw materials throughout the supply chain."},
+      {"text": "Because electronics cannot be recycled", "correct": false, "explanation": "Electronics can be recycled. The real reason is that products often require far more raw materials than their final weight suggests throughout extraction, processing and production."},
+      {"text": "Because software creates material waste", "correct": false, "explanation": "Software itself doesn't create material waste. The key insight is that raw materials used in extraction, processing and production are not visible in the final product — a phone requires far more resources than its weight suggests."}
     ]
   },
   {
     "id": 10,
-    "type": "bin",
-    "question": "Final Bin Challenge: where does each item belong?",
-    "items": ["Yogurt cup (rinsed)", "Tea bag", "Wine bottle", "Shipping box"],
-    "binOptions": {
-      "netherlands": ["GFT", "Paper", "Glass", "PMD", "Residual"],
-      "belgium": ["Organic", "Paper/Cardboard", "Glass", "PMD", "Residual"]
-    },
-    "correctByCountry": {
-      "netherlands": {
-        "Yogurt cup (rinsed)": "PMD",
-        "Tea bag": "GFT",
-        "Wine bottle": "Glass",
-        "Shipping box": "Paper"
-      },
-      "belgium": {
-        "Yogurt cup (rinsed)": "PMD",
-        "Tea bag": "Organic",
-        "Wine bottle": "Glass",
-        "Shipping box": "Paper/Cardboard"
-      }
-    },
-    "explanation": "Accurate sorting keeps recyclable streams cleaner and raises recovery rates."
+    "type": "multiple",
+    "question": "Which statement is most accurate?",
+    "answers": [
+      {"text": "Recycling is one of the most circular strategies", "correct": false, "explanation": "Recycling is important, but source reduction and reuse come before waste is created and typically have more impact than managing waste afterwards."},
+      {"text": "Compostable single-use items are always circular", "correct": false, "explanation": "Compostable items still represent single-use consumption. Avoiding unnecessary material use often has more impact than managing waste afterwards."},
+      {"text": "Avoiding unnecessary material use often has more impact than managing waste afterwards", "correct": true, "explanation": "EPA states that source reduction and reuse occur before waste is created and are among the most effective ways to conserve natural resources, protect the environment and save money. Recycling remains important, but only comes after reduce/reuse options are exhausted."},
+      {"text": "Landfill is circular if the waste is sorted first", "correct": false, "explanation": "Landfill is the opposite of circular — it's end-of-life disposal. Avoiding unnecessary material use and reuse have far more impact than managing waste afterwards."}
+    ]
+  },
+  {
+    "id": 11,
+    "type": "multiple",
+    "question": "How much CO₂ do you save per person if you travel from Paris to Amsterdam by train instead of by car?",
+    "answers": [
+      {"text": "5 kg CO₂", "correct": false, "explanation": "The savings are much larger. A Paris–Amsterdam journey emits around 3.0 kg CO₂ per person by train vs. 39.0 kg CO₂ by car — a saving of about 36 kg CO₂."},
+      {"text": "18 kg CO₂", "correct": false, "explanation": "The actual saving is about double that. A Paris–Amsterdam journey emits around 3.0 kg CO₂ per person by train vs. 39.0 kg CO₂ by car — a saving of about 36 kg CO₂."},
+      {"text": "36 kg CO₂", "correct": true, "explanation": "According to Eurostar's route-based carbon figures, a Paris–Amsterdam journey emits around 3.0 kg CO₂ per person by train, compared with around 39.0 kg CO₂ per person by car. That means the train saves approximately 36 kg CO₂ per person — about 92% less emissions than driving."},
+      {"text": "150 kg CO₂", "correct": false, "explanation": "Not quite that high. Based on Eurostar's figures, the saving is approximately 36 kg CO₂ per person (3.0 kg by train vs. 39.0 kg by car)."}
+    ]
+  },
+  {
+    "id": 12,
+    "type": "teamImpact",
+    "title": "Team Impact Calculator",
+    "subtitle": "If our team takes these actions for one year, what would we save?",
+    "items": [
+      {"icon": "\uD83D\uDEB4", "text": "20 people cycle 2x/week instead of driving (10 km) = ~25,000 kg CO\u2082 saved (\u2248 500 trees/year)"},
+      {"icon": "\uD83D\uDCBB", "text": "10 people choose refurbished laptops = ~425 kg CO\u2082 + 3,500 kg raw materials saved"},
+      {"icon": "\uD83E\uDD69", "text": "15 people replace 1 beef meal/week with vegan food = ~5,680 kg CO\u2082 saved"}
+    ],
+    "cta": "Small choices, big collective impact. Ready to see your score?"
   }
 ]

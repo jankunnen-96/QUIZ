@@ -13,15 +13,12 @@ const scoreSummary = document.getElementById("score-summary");
 const tipList = document.getElementById("tip-list");
 const restartBtn = document.getElementById("restart-btn");
 const fxLayer = document.getElementById("fx-layer");
-const countrySlider = document.getElementById("country-slider");
-const countryLeft = document.getElementById("country-left");
-const countryRight = document.getElementById("country-right");
 
 let questions = [];
 let currentIndex = 0;
 let score = 0;
 let locked = false;
-let selectedCountry = "netherlands";
+let playerName = "";
 
 async function loadQuestions() {
   const response = await fetch("questions.json", { cache: "no-store" });
@@ -40,25 +37,62 @@ function shuffle(array) {
   return copy;
 }
 
-function setCountry(value) {
-  selectedCountry = value === "1" ? "belgium" : "netherlands";
-  countryLeft.classList.toggle("active", selectedCountry === "netherlands");
-  countryRight.classList.toggle("active", selectedCountry === "belgium");
+function isInfoSlide(type) {
+  return type === "factCard" || type === "teamImpact" || type === "nameInput";
+}
+
+function getQuestionCount() {
+  return questions.filter((q) => !isInfoSlide(q.type)).length;
+}
+
+function getQuestionNumber() {
+  let count = 0;
+  for (let i = 0; i <= currentIndex; i += 1) {
+    if (!isInfoSlide(questions[i].type)) {
+      count += 1;
+    }
+  }
+  return count;
+}
+
+function getMaxScore() {
+  let max = 0;
+  for (const q of questions) {
+    if (q.type === "behaviour") {
+      max += Math.max(...q.answers.map((a) => a.score));
+    } else if (!isInfoSlide(q.type)) {
+      max += 1;
+    }
+  }
+  return max;
 }
 
 function resetState() {
   currentIndex = 0;
   score = 0;
   locked = false;
+  playerName = "";
   feedback.className = "feedback hidden";
   nextBtn.classList.add("hidden");
   resultCard.classList.add("hidden");
 }
 
 function updateProgress() {
-  const current = currentIndex + 1;
-  progressText.textContent = `Question ${current} of ${questions.length}`;
+  const question = questions[currentIndex];
+  const totalQuestions = getQuestionCount();
   const pct = (currentIndex / questions.length) * 100;
+
+  if (question.type === "nameInput") {
+    progressText.textContent = "Welcome";
+  } else if (question.type === "teamImpact") {
+    progressText.textContent = "Team Impact";
+  } else if (question.type === "factCard") {
+    progressText.textContent = "Fact Card";
+  } else {
+    const currentNum = getQuestionNumber();
+    progressText.textContent = `Question ${currentNum} of ${totalQuestions}`;
+  }
+
   progressFill.style.width = `${pct}%`;
   progressFill.parentElement.setAttribute("aria-valuenow", String(currentIndex));
 }
@@ -71,13 +105,11 @@ function showFeedback(correct, message) {
   progressFill.parentElement.setAttribute("aria-valuenow", String(currentIndex + 1));
   if (correct) {
     launchConfetti();
-  } else {
-    showGloom();
   }
 }
 
 function launchConfetti() {
-  const colors = ["#1f7a5f", "#e59e2e", "#2d8f6f", "#4ab3a2", "#f3ca63"];
+  const colors = ["#00DECC", "#00C4B3", "#009e90", "#0A151E", "#4de8dc"];
   for (let i = 0; i < 36; i += 1) {
     const piece = document.createElement("div");
     piece.className = "confetti";
@@ -89,15 +121,6 @@ function launchConfetti() {
   }
 }
 
-function showGloom() {
-  quizCard.classList.add("shake");
-  setTimeout(() => quizCard.classList.remove("shake"), 400);
-
-  const gloom = document.createElement("div");
-  gloom.className = "gloom";
-  fxLayer.appendChild(gloom);
-  setTimeout(() => gloom.remove(), 760);
-}
 
 function disableAllActionButtons() {
   interaction.querySelectorAll("button").forEach((btn) => {
@@ -141,6 +164,131 @@ function renderMultipleChoice(question) {
 
     interaction.appendChild(btn);
   });
+}
+
+function renderBehaviour(question) {
+  question.answers.forEach((answer) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "answer-btn";
+    btn.textContent = answer.text;
+
+    btn.addEventListener("click", () => {
+      if (locked) {
+        return;
+      }
+      locked = true;
+      disableAllActionButtons();
+
+      score += answer.score;
+      btn.classList.add("selected");
+
+      feedback.textContent = answer.explanation;
+      feedback.className = "feedback success";
+      nextBtn.classList.remove("hidden");
+      progressFill.style.width = `${((currentIndex + 1) / questions.length) * 100}%`;
+      progressFill.parentElement.setAttribute("aria-valuenow", String(currentIndex + 1));
+      launchConfetti();
+    });
+
+    interaction.appendChild(btn);
+  });
+}
+
+function renderFactCard(question) {
+  const card = document.createElement("div");
+  card.className = "fact-card-content";
+
+  const icon = document.createElement("span");
+  icon.className = "fact-icon";
+  icon.textContent = "\uD83D\uDCA1";
+
+  const text = document.createElement("p");
+  text.className = "fact-text";
+  text.textContent = question.text;
+
+  card.appendChild(icon);
+  card.appendChild(text);
+  interaction.appendChild(card);
+
+  nextBtn.classList.remove("hidden");
+}
+
+function renderNameInput(question) {
+  const wrap = document.createElement("div");
+  wrap.className = "estimate-wrap";
+
+  const input = document.createElement("input");
+  input.type = "text";
+  input.className = "estimate-input";
+  input.placeholder = question.placeholder || "Your name";
+  input.maxLength = 50;
+
+  const submit = document.createElement("button");
+  submit.type = "button";
+  submit.className = "btn btn-secondary submit-inline";
+  submit.textContent = "Let\u2019s Go!";
+
+  submit.addEventListener("click", () => {
+    if (locked) {
+      return;
+    }
+    const name = input.value.trim();
+    if (!name) {
+      input.focus();
+      return;
+    }
+    locked = true;
+    disableAllActionButtons();
+    playerName = name;
+    nextBtn.classList.remove("hidden");
+  });
+
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      submit.click();
+    }
+  });
+
+  wrap.appendChild(input);
+  wrap.appendChild(submit);
+  interaction.appendChild(wrap);
+}
+
+function renderTeamImpact(question) {
+  const wrap = document.createElement("div");
+  wrap.className = "team-impact";
+
+  const subtitle = document.createElement("p");
+  subtitle.className = "team-impact-subtitle";
+  subtitle.textContent = question.subtitle;
+  wrap.appendChild(subtitle);
+
+  question.items.forEach((item) => {
+    const row = document.createElement("div");
+    row.className = "team-impact-row";
+
+    const icon = document.createElement("span");
+    icon.className = "team-impact-icon";
+    icon.textContent = item.icon;
+
+    const text = document.createElement("span");
+    text.className = "team-impact-text";
+    text.textContent = item.text;
+
+    row.appendChild(icon);
+    row.appendChild(text);
+    wrap.appendChild(row);
+  });
+
+  const cta = document.createElement("p");
+  cta.className = "team-impact-cta";
+  cta.textContent = question.cta;
+  wrap.appendChild(cta);
+
+  interaction.appendChild(wrap);
+  nextBtn.textContent = "See Your Results";
+  nextBtn.classList.remove("hidden");
 }
 
 function renderEstimation(question) {
@@ -270,83 +418,43 @@ function renderSorting(question) {
   interaction.appendChild(submit);
 }
 
-function renderBinQuestion(question) {
-  const options = question.binOptions[selectedCountry];
-  const grid = document.createElement("div");
-  grid.className = "bin-grid";
-  const selects = [];
-
-  question.items.forEach((item) => {
-    const wrap = document.createElement("div");
-    wrap.className = "bin-item";
-
-    const label = document.createElement("label");
-    label.textContent = item;
-
-    const select = document.createElement("select");
-    const defaultOption = document.createElement("option");
-    defaultOption.value = "";
-    defaultOption.textContent = "Choose bin";
-    select.appendChild(defaultOption);
-
-    options.forEach((opt) => {
-      const node = document.createElement("option");
-      node.value = opt;
-      node.textContent = opt;
-      select.appendChild(node);
-    });
-
-    wrap.appendChild(label);
-    wrap.appendChild(select);
-    grid.appendChild(wrap);
-    selects.push(select);
-  });
-
-  const submit = document.createElement("button");
-  submit.type = "button";
-  submit.className = "btn btn-secondary submit-inline";
-  submit.textContent = "Submit Bin Choices";
-
-  submit.addEventListener("click", () => {
-    if (locked) {
-      return;
-    }
-
-    const values = selects.map((select) => select.value);
-    if (values.some((value) => !value)) {
-      showFeedback(false, "Choose a bin for each item before submitting.");
-      return;
-    }
-
-    locked = true;
-    disableAllActionButtons();
-
-    const answers = question.correctByCountry[selectedCountry];
-    const allCorrect = question.items.every((item, idx) => values[idx] === answers[item]);
-    if (allCorrect) {
-      score += 1;
-    }
-
-    const solutionText = question.items
-      .map((item) => `${item}: ${answers[item]}`)
-      .join(" | ");
-    const message = `${question.explanation} ${selectedCountry === "netherlands" ? "Netherlands" : "Belgium"} mapping: ${solutionText}.`;
-    showFeedback(allCorrect, message);
-  });
-
-  interaction.appendChild(grid);
-  interaction.appendChild(submit);
-}
-
 function renderQuestion() {
   locked = false;
   feedback.className = "feedback hidden";
   nextBtn.classList.add("hidden");
+  nextBtn.textContent = "Next Question";
 
   const question = questions[currentIndex];
   updateProgress();
-  questionText.textContent = question.question;
   interaction.innerHTML = "";
+
+  if (question.type === "nameInput") {
+    questionText.textContent = question.question;
+    if (question.hint) {
+      questionHint.textContent = question.hint;
+      questionHint.classList.remove("hidden");
+    } else {
+      questionHint.classList.add("hidden");
+    }
+    renderNameInput(question);
+    return;
+  }
+
+  if (question.type === "factCard") {
+    questionText.textContent = "Did You Know?";
+    questionHint.classList.add("hidden");
+    renderFactCard(question);
+    return;
+  }
+
+  if (question.type === "teamImpact") {
+    questionText.textContent = question.title;
+    questionHint.classList.add("hidden");
+    renderTeamImpact(question);
+    return;
+  }
+
+  questionText.textContent = question.question;
 
   if (question.hint) {
     questionHint.textContent = question.hint;
@@ -360,6 +468,11 @@ function renderQuestion() {
     return;
   }
 
+  if (question.type === "behaviour") {
+    renderBehaviour(question);
+    return;
+  }
+
   if (question.type === "estimation") {
     renderEstimation(question);
     return;
@@ -367,59 +480,73 @@ function renderQuestion() {
 
   if (question.type === "sorting") {
     renderSorting(question);
-    return;
-  }
-
-  if (question.type === "bin") {
-    renderBinQuestion(question);
   }
 }
 
-function getResultBand(value, total) {
-  const ratio = value / total;
-  if (ratio >= 0.8) {
+function getResultBand(value) {
+  if (value >= 9) {
     return {
-      title: "Circular Economy Champion",
-      summary: "You consistently make low-waste choices and understand sorting rules. Your habits are helping cut trash at the source.",
+      key: "champion",
+      title: "The Circular Champion",
+      summary: "You\u2019re a frontrunner! Your choices keep value in the loop.",
       tips: [
-        "Lead a monthly office challenge on refill and reuse habits.",
-        "Share your top 3 low-waste swaps with your team.",
-        "Push suppliers for less packaging where possible."
+        "\u2705 Become a circularity ambassador for your team",
+        "\u2705 Propose one business process that could be more circular"
       ]
     };
   }
 
-  if (ratio >= 0.5) {
+
+  if (value >= 4) {
     return {
-      title: "Waste-Aware Improver",
-      summary: "You are on a strong path with room to sharpen sorting consistency and product choices.",
+      key: "smartSorter",
+      title: "The Smart Sorter",
+      summary: "You recycle well, but there\u2019s more impact to gain before something becomes waste.",
       tips: [
-        "Review bin labels at home and work for one week.",
-        "Prioritize reusable options in your top two daily routines.",
-        "Replace one short-lifespan item with a durable version."
+        "\u2705 Repair or get something repaired instead of replacing it",
+        "\u2705 Choose refurbished over new for your next purchase"
       ]
     };
   }
 
   return {
-    title: "Waste Reduction Starter",
-    summary: "Great first step. Focus on one category this month and your results will improve quickly.",
+    key: "linearLoyalist",
+    title: "The Linear Loyalist",
+    summary: "You\u2019re still mostly operating in a linear way \u2014 but small steps make a big difference.",
     tips: [
-      "Start with drinks: reusable bottle and mug every day.",
-      "Sort tricky items with a local municipality guide nearby.",
-      "Choose repair or refill before replacement."
+      "\u2705 Choose one second-hand item this month (clothing, book, electronics)",
+      "\u2705 Cycle to work once a week instead of driving"
     ]
   };
+}
+
+function getChampions() {
+  try {
+    return JSON.parse(localStorage.getItem("circularityChampions") || "[]");
+  } catch {
+    return [];
+  }
+}
+
+function saveChampion(name, score) {
+  const champions = getChampions();
+  const exists = champions.some(
+    (c) => c.name.toLowerCase() === name.toLowerCase()
+  );
+  if (!exists) {
+    champions.push({ name, score, date: new Date().toISOString() });
+    localStorage.setItem("circularityChampions", JSON.stringify(champions));
+  }
 }
 
 function showResults() {
   quizCard.classList.add("hidden");
   resultCard.classList.remove("hidden");
 
-  const total = questions.length;
-  const result = getResultBand(score, total);
+  const maxScore = getMaxScore();
+  const result = getResultBand(score);
 
-  scoreTitle.textContent = `${score}/${total} - ${result.title}`;
+  scoreTitle.textContent = `${score}/${maxScore} \u2014 ${result.title}`;
   scoreSummary.textContent = result.summary;
   tipList.innerHTML = "";
 
@@ -429,13 +556,45 @@ function showResults() {
     tipList.appendChild(li);
   });
 
+  if (result.key === "champion" && playerName) {
+    saveChampion(playerName, score);
+  }
+
+  const championsWall = document.getElementById("champions-wall");
+  const champions = getChampions();
+
+  if (champions.length > 0) {
+    championsWall.classList.remove("hidden");
+    championsWall.innerHTML = "";
+
+    const heading = document.createElement("h3");
+    heading.className = "champions-heading";
+    heading.textContent = "\uD83C\uDFC6 Circular Champions Wall";
+    championsWall.appendChild(heading);
+
+    const list = document.createElement("ul");
+    list.className = "champions-list";
+    champions.forEach((c) => {
+      const li = document.createElement("li");
+      li.className = "champion-entry";
+      if (c.name.toLowerCase() === playerName.toLowerCase() && result.key === "champion") {
+        li.classList.add("champion-you");
+      }
+      li.textContent = c.name;
+      list.appendChild(li);
+    });
+    championsWall.appendChild(list);
+  } else {
+    championsWall.classList.add("hidden");
+  }
+
   localStorage.setItem(
-    "trashImpactLastResult",
+    "circularityChallengeLastResult",
     JSON.stringify({
       date: new Date().toISOString(),
       score,
-      total,
-      country: selectedCountry
+      maxScore,
+      name: playerName
     })
   );
 }
@@ -478,12 +637,3 @@ restartBtn.addEventListener("click", () => {
   startBtn.disabled = false;
   startBtn.textContent = "Start Quiz";
 });
-
-countrySlider.addEventListener("input", (event) => {
-  setCountry(event.target.value);
-  if (!quizCard.classList.contains("hidden") && questions[currentIndex]?.type === "bin" && !locked) {
-    renderQuestion();
-  }
-});
-
-setCountry(countrySlider.value);

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trash Impact Lifestyle Quiz</title>
-  <meta name="description" content="A sustainability quiz about lifestyle choices that affect household trash output.">
+  <title>Circularity Challenge</title>
+  <meta name="description" content="A 5-minute quiz on materials, waste, energy and smarter choices at work.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
@@ -14,19 +14,10 @@
   <div class="page-bg" aria-hidden="true"></div>
 
   <main class="app-shell">
-    <section class="country-selector card">
-      <p class="eyebrow">Recycling Rules Region</p>
-      <div class="country-row">
-        <span id="country-left" class="country-label active">Netherlands</span>
-        <input id="country-slider" class="country-slider" type="range" min="0" max="1" step="1" value="0" aria-label="Select recycling rules country">
-        <span id="country-right" class="country-label">Belgium</span>
-      </div>
-    </section>
-
     <header class="hero">
-      <p class="eyebrow">Workplace Sustainability Challenge</p>
-      <h1>How Much Trash Does Your Lifestyle Create?</h1>
-      <p class="subtitle">Play 10 mixed question types: multiple choice, estimation, sorting, and bin-selection adapted to Netherlands or Belgium rules.</p>
+      <img src="SIA_Logo_Black.png" alt="SIA" class="hero-logo">
+      <h1>Circularity Challenge: How Much Value Do You Keep in the Loop?</h1>
+      <p class="subtitle">A 5-minute quiz on materials, waste, energy and smarter choices at work.</p>
       <button id="start-btn" class="btn btn-primary">Start Quiz</button>
     </header>
 
@@ -54,6 +45,7 @@
       <h2 id="score-title"></h2>
       <p id="score-summary" class="result-summary"></p>
       <ul id="tip-list" class="tips"></ul>
+      <div id="champions-wall" class="champions-wall hidden"></div>
       <button id="restart-btn" class="btn btn-primary">Play Again</button>
     </section>
 
