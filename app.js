@@ -488,7 +488,7 @@ function getResultBand(value) {
     return {
       key: "champion",
       title: "The Circular Champion",
-      summary: "You\u2019re a frontrunner! Your choices keep value in the loop.",
+      summary: "You\u2019re a frontrunner! Your knowledge and awareness keep value in the loop.",
       tips: [
         "\u2705 Become a circularity ambassador for your team",
         "\u2705 Propose one business process that could be more circular"
@@ -496,12 +496,23 @@ function getResultBand(value) {
     };
   }
 
+  if (value >= 7) {
+    return {
+      key: "loopBuilder",
+      title: "The Loop Builder",
+      summary: "You\u2019re already thinking circular \u2014 reuse, repair and sharing are in your DNA.",
+      tips: [
+        "\u2705 Organize a team reuse/swap event at the office",
+        "\u2705 Share your circular choices with colleagues"
+      ]
+    };
+  }
 
   if (value >= 4) {
     return {
       key: "smartSorter",
       title: "The Smart Sorter",
-      summary: "You recycle well, but there\u2019s more impact to gain before something becomes waste.",
+      summary: "You know the basics, but there\u2019s more to discover about circularity beyond recycling.",
       tips: [
         "\u2705 Repair or get something repaired instead of replacing it",
         "\u2705 Choose refurbished over new for your next purchase"
@@ -510,9 +521,9 @@ function getResultBand(value) {
   }
 
   return {
-    key: "linearLoyalist",
-    title: "The Linear Loyalist",
-    summary: "You\u2019re still mostly operating in a linear way \u2014 but small steps make a big difference.",
+    key: "linearLoser",
+    title: "The Linear Loser",
+    summary: "Time to brush up \u2014 there\u2019s a whole circular world to discover!",
     tips: [
       "\u2705 Choose one second-hand item this month (clothing, book, electronics)",
       "\u2705 Cycle to work once a week instead of driving"

@@ -34,18 +34,6 @@
     "text": "Did you know? Global circularity is only 6.9% — more than 90% of materials are still linear (extract-use-dispose)."
   },
   {
-    "id": 4,
-    "type": "behaviour",
-    "question": "In the last 6 months, how often did you choose second-hand, refurbished or repaired instead of buying new?",
-    "hint": "This is a self-assessment question — every honest answer counts.",
-    "answers": [
-      {"text": "Never", "score": 0, "explanation": "No worries — awareness is the first step. Reuse and repair are often more powerful than recycling because they prevent a new product from being manufactured in the first place."},
-      {"text": "Once", "score": 1, "explanation": "A good start! Reuse and repair are often more powerful than recycling because they prevent a new product from being manufactured in the first place."},
-      {"text": "A few times", "score": 2, "explanation": "Nice habit forming! Reuse and repair are often more powerful than recycling because they prevent a new product from being manufactured in the first place."},
-      {"text": "Whenever it was a realistic option", "score": 3, "explanation": "That's the circular mindset! Reuse and repair prevent new products from being manufactured — source reduction and reuse are considered by EPA to be highly effective ways to conserve natural resources, reduce environmental impact and save money."}
-    ]
-  },
-  {
     "id": 5,
     "type": "multiple",
     "question": "How much lower is the climate impact of buying a second-hand garment compared to buying new (with comparable use)?",
@@ -118,6 +106,28 @@
   },
   {
     "id": 12,
+    "type": "multiple",
+    "question": "You live in a 70 m\u00B2 Amsterdam apartment with a gas boiler. Instead of keeping it heated 5\u00B0C warmer for 8 hours while you\u2019re at work, you turn the heating down. Roughly how many kilometres could you drive an average petrol car and still come out CO\u2082-neutral compared to that heating saving?",
+    "answers": [
+      {"text": "About 5 km", "correct": false, "explanation": "The saving is bigger than that. The avoided heating emits roughly 4\u20137 kg CO\u2082, and at ~0.19 kg CO\u2082/km for a petrol car, that works out to about 20\u201335 km of driving."},
+      {"text": "About 20\u201335 km", "correct": true, "explanation": "The saved heating emits roughly 4\u20137 kg CO\u2082, and an average petrol car emits around 0.18\u20130.20 kg CO\u2082 per km. So 4\u20137 kg \u00F7 0.19 kg/km \u2248 20\u201335 km of driving. Note: reheating a cooled apartment takes a bit more energy than just maintaining it, so the real savings may be slightly less \u2014 maybe 15\u201330 km in practice. Still, a modest commute by car roughly cancels out the heating you saved."},
+      {"text": "About 75 km", "correct": false, "explanation": "Not quite that far. The avoided heating emits roughly 4\u20137 kg CO\u2082, which at ~0.19 kg CO\u2082/km equals about 20\u201335 km of driving."},
+      {"text": "About 150 km", "correct": false, "explanation": "That\u2019s much too high. The saved heating emits roughly 4\u20137 kg CO\u2082, enough to offset only about 20\u201335 km of petrol car driving."}
+    ]
+  },
+  {
+    "id": 13,
+    "type": "multiple",
+    "question": "Of all the plastic ever produced in history, roughly how much has actually been recycled?",
+    "answers": [
+      {"text": "About 9%", "correct": true, "explanation": "According to the landmark 2017 study by Geyer, Jambeck & Law in Science Advances, of the 8.3 billion metric tons of plastic ever produced, only 9% has been recycled. About 12% was incinerated, and 79% accumulated in landfills or the natural environment. The OECD confirmed in 2022 that this 9% figure still holds. The Royal Statistical Society named it their \u201Cstatistic of the year\u201D in 2018."},
+      {"text": "About 25%", "correct": false, "explanation": "It\u2019s much lower than that. Research shows only about 9% of all plastic ever made has been recycled. 79% has ended up in landfills or the natural environment, and 12% was incinerated."},
+      {"text": "About 40%", "correct": false, "explanation": "Unfortunately nowhere near that. Only about 9% of all plastic ever produced has been recycled, according to the foundational 2017 study by Geyer, Jambeck & Law \u2014 a figure confirmed by the OECD in 2022."},
+      {"text": "About 55%", "correct": false, "explanation": "The reality is far lower. Only about 9% of all plastic ever made has been recycled. The vast majority \u2014 79% \u2014 has accumulated in landfills, dumps or the natural environment."}
+    ]
+  },
+  {
+    "id": 14,
     "type": "teamImpact",
     "title": "Team Impact Calculator",
     "subtitle": "If our team takes these actions for one year, what would we save?",
