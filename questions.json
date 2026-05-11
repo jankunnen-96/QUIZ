@@ -55,7 +55,7 @@
     "question": "Going vegetarian for a year can save roughly enough CO₂e to offset the production emissions of…",
     "answers": [
       {"text": "Eight coffee mugs", "correct": false, "explanation": "The savings are much larger. Switching from a medium-meat diet to a vegetarian diet saves about 1,230 kg CO₂e per year — comparable to the production of more than 4 laptops."},
-      {"text": "Three laptop sleeves", "correct": false, "explanation": "Think bigger. Switching from a medium-meat diet to a vegetarian diet saves about 1,230 kg CO₂e per year — comparable to the production of more than 4 laptops."},
+      {"text": "Three phones", "correct": false, "explanation": "Think bigger. Switching from a medium-meat diet to a vegetarian diet saves about 1,230 kg CO₂e per year — comparable to the production of more than 4 laptops."},
       {"text": "Four new laptops", "correct": true, "explanation": "Based on UK dietary emissions data, switching from a medium-meat diet to a vegetarian diet saves about 1,230 kg CO₂e per year. Depending on the laptop model, production emissions can be around 280 kg CO₂e, so that is comparable to the production of more than 4 laptops."},
       {"text": "An entire office building", "correct": false, "explanation": "That would be great, but the actual savings are more modest. Switching from a medium-meat diet to a vegetarian diet saves about 1,230 kg CO₂e per year — comparable to the production of more than 4 laptops."}
     ]
@@ -76,7 +76,7 @@
     "type": "multiple",
     "question": "Why can a phone have a larger material footprint than its physical weight suggests?",
     "answers": [
-      {"text": "Because the packaging is sometimes heavier than the phone itself", "correct": false, "explanation": "Packaging weight is not the main factor. The Circularity Gap methodology uses Raw Material Consumption because products often require far more raw materials than their final weight suggests throughout the supply chain."},
+      {"text": "Because the packaging and logistics are not included", "correct": false, "explanation": "Packaging and logistics are not the main factors. The Circularity Gap methodology uses Raw Material Consumption because products often require far more raw materials than their final weight suggests throughout the supply chain."},
       {"text": "Because raw materials used in extraction, processing and production are not visible in the final product", "correct": true, "explanation": "The Circularity Gap methodology uses Raw Material Consumption because products often require far more raw materials than their final weight suggests; a smartphone weighs little, but requires many more raw materials throughout the supply chain."},
       {"text": "Because electronics cannot be recycled", "correct": false, "explanation": "Electronics can be recycled. The real reason is that products often require far more raw materials than their final weight suggests throughout extraction, processing and production."},
       {"text": "Because software creates material waste", "correct": false, "explanation": "Software itself doesn't create material waste. The key insight is that raw materials used in extraction, processing and production are not visible in the final product — a phone requires far more resources than its weight suggests."}
