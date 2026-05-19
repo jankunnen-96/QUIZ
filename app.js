@@ -487,7 +487,7 @@ function renderQuestion() {
 }
 
 function getResultBand(value) {
-  if (value >= 7) {
+  if (value >= 8) {
     return {
       key: "champion",
       title: "The Circular Champion",

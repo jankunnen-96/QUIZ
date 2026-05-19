@@ -114,6 +114,17 @@
       {"text": "About 40%", "correct": false, "explanation": "Unfortunately nowhere near that. Only about 9% of all plastic ever produced has been recycled, according to the foundational 2017 study by Geyer, Jambeck & Law \u2014 a figure confirmed by the OECD in 2022."},
       {"text": "About 55%", "correct": false, "explanation": "The reality is far lower. Only about 9% of all plastic ever made has been recycled. The vast majority \u2014 79% \u2014 has accumulated in landfills, dumps or the natural environment."}
     ]
+  },
+  {
+    "id": 18,
+    "type": "multiple",
+    "question": "If the whole world shifted to a plant-based diet, by roughly how much could global agricultural land use shrink, freeing space for forests and ecosystems to return?",
+    "answers": [
+      {"text": "About 15%", "correct": false, "explanation": "The potential is far greater. The landmark Poore & Nemecek (2018) meta-analysis in Science found that a global shift to a plant-based diet could cut agricultural land use by about 75% — from roughly 4 billion to 1 billion hectares — because most farmland currently grows pasture and animal feed rather than food for people."},
+      {"text": "About 35%", "correct": false, "explanation": "Higher than that. Poore & Nemecek's 2018 Science study found a global plant-based diet could reduce agricultural land use by around 75%, since roughly 80% of farmland is tied up in meat and dairy production while delivering only a small fraction of calories."},
+      {"text": "About 75%", "correct": true, "explanation": "The largest meta-analysis of global food systems to date — Poore & Nemecek (2018), published in Science, covering 38,700 farms across 119 countries — found that a global shift to a plant-based diet could shrink agricultural land use from about 4.1 billion to 1 billion hectares: a 75% reduction. That freed-up land — an area roughly the size of North America and Brazil combined — could return to forests, restored ecosystems and natural carbon sinks. Crucially, big reductions are possible even without going fully vegan; cutting red meat and dairy delivers most of the gain."},
+      {"text": "Land use would stay about the same", "correct": false, "explanation": "It would fall dramatically. Poore & Nemecek's 2018 Science meta-analysis found a global plant-based diet could cut agricultural land use by about 75% — from roughly 4 to 1 billion hectares — because animal agriculture is highly land-intensive relative to the calories it provides."}
+    ]
   }
 
 ]
