@@ -7,41 +7,30 @@
     "placeholder": "Enter your name"
   },
   {
-    "id": 1,
-    "type": "multiple",
-    "question": "Your office chair breaks. Which option usually keeps the most value in the system?",
-    "answers": [
-      {"text": "Throw it away and buy a new one", "correct": false, "explanation": "Discarding and buying new is a linear approach — extract, use, dispose — and loses all the value embedded in the existing chair."},
-      {"text": "Recycle the metal/plastic parts immediately", "correct": false, "explanation": "Recycling is valuable, but repair usually keeps the product at a higher value level for longer."},
-      {"text": "Repair or replace the broken component", "correct": true, "explanation": "Circularity is about keeping products and materials in use as long as possible through sharing, leasing, reuse, repair, refurbishing and recycling. Recycling is valuable, but repair usually keeps the product at a higher value level for longer."},
-      {"text": "Buy a cheaper chair with no spare parts", "correct": false, "explanation": "A cheap replacement with no spare parts is designed for disposal, not circularity — it shortens the product lifecycle."}
-    ]
-  },
-  {
     "id": 2,
     "type": "multiple",
     "question": "Producing aluminium from recycled aluminium uses roughly how much energy compared with producing it from virgin raw materials?",
     "answers": [
-      {"text": "About the same amount", "correct": false, "explanation": "Recycling aluminium is far more efficient. It can be recycled using less than 5% of the energy needed to make the original product."},
-      {"text": "About 50%", "correct": false, "explanation": "The savings are much larger. Aluminium can be recycled using less than 5% of the energy needed to make the original product."},
-      {"text": "Less than 5%", "correct": true, "explanation": "Aluminium can be recycled using less than 5% of the energy needed to make the original product."},
-      {"text": "More energy, but less water", "correct": false, "explanation": "Recycling aluminium uses dramatically less energy — less than 5% — and is one of the strongest cases for material recycling."}
+      {"text": "About the same amount", "correct": false, "explanation": "Aluminium can be recycled endlessly without losing value. Using recycled aluminium requires less than 5% of the energy needed compared to aluminium from virgin materials — one of the strongest cases for material recycling."},
+      {"text": "About 50%", "correct": false, "explanation": "Aluminium can be recycled endlessly without losing value. Using recycled aluminium requires less than 5% of the energy needed compared to aluminium from virgin materials — one of the strongest cases for material recycling."},
+      {"text": "Less than 5%", "correct": true, "explanation": "Aluminium can be recycled endlessly without losing value. Using recycled aluminium requires less than 5% of the energy needed compared to aluminium from virgin materials — one of the strongest cases for material recycling."},
+      {"text": "More energy, but less water", "correct": false, "explanation": "Aluminium can be recycled endlessly without losing value. Using recycled aluminium requires less than 5% of the energy needed compared to aluminium from virgin materials — one of the strongest cases for material recycling."}
     ]
   },
   {
     "id": 3,
     "type": "factCard",
-    "text": "Did you know? Global circularity is only 6.9% — more than 90% of materials are still linear (extract-use-dispose)."
+    "text": "Did you know? The global circularity rate is only 6.9% — more than 90% of materials are still linear (extract-use-dispose)."
   },
   {
     "id": 5,
     "type": "multiple",
     "question": "How much lower is the climate impact of buying a second-hand garment compared to buying new (with comparable use)?",
     "answers": [
-      {"text": "10–15% lower", "correct": false, "explanation": "The impact is larger than that. Research shows buying second-hand clothing leads to up to 42% lower climate and energy impact compared to new."},
-      {"text": "20–25% lower", "correct": false, "explanation": "Close, but the savings are even bigger. Research shows buying second-hand clothing leads to up to 42% lower climate and energy impact compared to new."},
-      {"text": "Up to 42% lower", "correct": true, "explanation": "Research shows that buying second-hand clothing in the same use scenario leads to up to 42% lower climate and energy impact, and 35–53% lower water footprint compared to new. Reuse is especially valuable for garments with high production impact, such as sweaters and jeans."},
-      {"text": "Up to 70% lower", "correct": false, "explanation": "Not quite that high. Research shows the figure is up to 42% lower climate and energy impact, and 35–53% lower water footprint compared to new."}
+      {"text": "12% lower", "correct": false, "explanation": "The impact is larger than that. Research shows that within the same behaviour scenario, embracing second-hand consumption instead of buying new clothes leads to up to 42% lower impacts for climate change and cumulative energy demand, 42–53% for freshwater eutrophication, and 35–53% for water scarcity footprint per use."},
+      {"text": "24% lower", "correct": false, "explanation": "Close, but the savings are even bigger. Research shows that within the same behaviour scenario, embracing second-hand consumption instead of buying new clothes leads to up to 42% lower impacts for climate change and cumulative energy demand, 42–53% for freshwater eutrophication, and 35–53% for water scarcity footprint per use."},
+      {"text": "42% lower", "correct": true, "explanation": "Research shows that within the same behaviour scenario, embracing second-hand consumption instead of buying new clothes leads to up to 42% lower impacts for climate change and cumulative energy demand, 42–53% for freshwater eutrophication, and 35–53% for water scarcity footprint per use."},
+      {"text": "73% lower", "correct": false, "explanation": "Not quite that high. Research shows that within the same behaviour scenario, embracing second-hand consumption instead of buying new clothes leads to up to 42% lower impacts for climate change and cumulative energy demand, 42–53% for freshwater eutrophication, and 35–53% for water scarcity footprint per use."}
     ]
   },
   {
@@ -52,7 +41,7 @@
   {
     "id": 7,
     "type": "multiple",
-    "question": "Going vegetarian for a year can save roughly enough CO₂e to offset the production emissions of…",
+    "question": "Switching from a medium-meat diet to a vegetarian diet for a year can save roughly enough CO₂e to offset the production emissions of…",
     "answers": [
       {"text": "Eight coffee mugs", "correct": false, "explanation": "The savings are much larger. Switching from a medium-meat diet to a vegetarian diet saves about 1,230 kg CO₂e per year — comparable to the production of more than 4 laptops."},
       {"text": "Three phones", "correct": false, "explanation": "Think bigger. Switching from a medium-meat diet to a vegetarian diet saves about 1,230 kg CO₂e per year — comparable to the production of more than 4 laptops."},
@@ -96,7 +85,7 @@
   {
     "id": 11,
     "type": "multiple",
-    "question": "How much CO₂ do you save per person if you travel from Paris to Amsterdam by train instead of by car?",
+    "question": "How much CO₂ do you save per person if you travel from the Sia Paris office to the Sia Amsterdam office by train instead of by car?",
     "answers": [
       {"text": "5 kg CO₂", "correct": false, "explanation": "The savings are much larger. A Paris–Amsterdam journey emits around 3.0 kg CO₂ per person by train vs. 39.0 kg CO₂ by car — a saving of about 36 kg CO₂."},
       {"text": "18 kg CO₂", "correct": false, "explanation": "The actual saving is about double that. A Paris–Amsterdam journey emits around 3.0 kg CO₂ per person by train vs. 39.0 kg CO₂ by car — a saving of about 36 kg CO₂."},
@@ -107,12 +96,12 @@
   {
     "id": 12,
     "type": "multiple",
-    "question": "You live in a 70 m\u00B2 Amsterdam apartment with a gas boiler. Instead of keeping it heated 5\u00B0C warmer for 8 hours while you\u2019re at work, you turn the heating down. Roughly how many kilometres could you drive an average petrol car and still come out CO\u2082-neutral compared to that heating saving?",
+    "question": "You live in a 70 m² Amsterdam apartment with a gas boiler. Instead of keeping it warm during the 8 hours you're at work, you turn down the heating 5°C. Roughly how many kilometres could you drive an average petrol car and still come out CO₂-neutral compared to that heating saving?",
     "answers": [
-      {"text": "About 5 km", "correct": false, "explanation": "The saving is bigger than that. The avoided heating emits roughly 4\u20137 kg CO\u2082, and at ~0.19 kg CO\u2082/km for a petrol car, that works out to about 20\u201335 km of driving."},
+      {"text": "About 5\u20137 km", "correct": false, "explanation": "The saving is bigger than that. The avoided heating emits roughly 4\u20137 kg CO\u2082, and at ~0.19 kg CO\u2082/km for a petrol car, that works out to about 20\u201335 km of driving."},
       {"text": "About 20\u201335 km", "correct": true, "explanation": "The saved heating emits roughly 4\u20137 kg CO\u2082, and an average petrol car emits around 0.18\u20130.20 kg CO\u2082 per km. So 4\u20137 kg \u00F7 0.19 kg/km \u2248 20\u201335 km of driving. Note: reheating a cooled apartment takes a bit more energy than just maintaining it, so the real savings may be slightly less \u2014 maybe 15\u201330 km in practice. Still, a modest commute by car roughly cancels out the heating you saved."},
-      {"text": "About 75 km", "correct": false, "explanation": "Not quite that far. The avoided heating emits roughly 4\u20137 kg CO\u2082, which at ~0.19 kg CO\u2082/km equals about 20\u201335 km of driving."},
-      {"text": "About 150 km", "correct": false, "explanation": "That\u2019s much too high. The saved heating emits roughly 4\u20137 kg CO\u2082, enough to offset only about 20\u201335 km of petrol car driving."}
+      {"text": "About 70\u201380 km", "correct": false, "explanation": "Not quite that far. The avoided heating emits roughly 4\u20137 kg CO\u2082, which at ~0.19 kg CO\u2082/km equals about 20\u201335 km of driving."},
+      {"text": "About 140\u2013160 km", "correct": false, "explanation": "That\u2019s much too high. The saved heating emits roughly 4\u20137 kg CO\u2082, enough to offset only about 20\u201335 km of petrol car driving."}
     ]
   },
   {
@@ -125,17 +114,6 @@
       {"text": "About 40%", "correct": false, "explanation": "Unfortunately nowhere near that. Only about 9% of all plastic ever produced has been recycled, according to the foundational 2017 study by Geyer, Jambeck & Law \u2014 a figure confirmed by the OECD in 2022."},
       {"text": "About 55%", "correct": false, "explanation": "The reality is far lower. Only about 9% of all plastic ever made has been recycled. The vast majority \u2014 79% \u2014 has accumulated in landfills, dumps or the natural environment."}
     ]
-  },
-  {
-    "id": 14,
-    "type": "teamImpact",
-    "title": "Team Impact Calculator",
-    "subtitle": "If our team takes these actions for one year, what would we save?",
-    "items": [
-      {"icon": "\uD83D\uDEB4", "text": "20 people cycle 2x/week instead of driving (10 km) = ~25,000 kg CO\u2082 saved (\u2248 500 trees/year)"},
-      {"icon": "\uD83D\uDCBB", "text": "10 people choose refurbished laptops = ~425 kg CO\u2082 + 3,500 kg raw materials saved"},
-      {"icon": "\uD83E\uDD69", "text": "15 people replace 1 beef meal/week with vegan food = ~5,680 kg CO\u2082 saved"}
-    ],
-    "cta": "Small choices, big collective impact. Ready to see your score?"
   }
+
 ]

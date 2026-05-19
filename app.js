@@ -487,7 +487,7 @@ function renderQuestion() {
 }
 
 function getResultBand(value) {
-  if (value >= 9) {
+  if (value >= 7) {
     return {
       key: "champion",
       title: "The Circular Champion",
@@ -499,7 +499,7 @@ function getResultBand(value) {
     };
   }
 
-  if (value >= 7) {
+  if (value >= 4) {
     return {
       key: "loopBuilder",
       title: "The Loop Builder",
@@ -511,21 +511,10 @@ function getResultBand(value) {
     };
   }
 
-  if (value >= 4) {
-    return {
-      key: "smartSorter",
-      title: "The Smart Sorter",
-      summary: "You know the basics, but there\u2019s more to discover about circularity beyond recycling.",
-      tips: [
-        "\u2705 Repair or get something repaired instead of replacing it",
-        "\u2705 Choose refurbished over new for your next purchase"
-      ]
-    };
-  }
 
   return {
     key: "linearLoser",
-    title: "The Linear Loser",
+    title: "The Linear Loyalist",
     summary: "Time to brush up \u2014 there\u2019s a whole circular world to discover!",
     tips: [
       "\u2705 Choose one second-hand item this month (clothing, book, electronics)",

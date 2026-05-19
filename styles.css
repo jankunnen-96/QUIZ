@@ -35,9 +35,9 @@ body {
 }
 
 .app-shell {
-  max-width: 900px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem 1rem 3rem;
+  padding: 2rem 2rem 3rem;
   position: relative;
 }
 
@@ -121,7 +121,7 @@ h1 {
 }
 
 .question-text {
-  font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+  font-size: clamp(1.45rem, 2.5vw, 2rem);
   margin: 0.4rem 0 1.1rem;
 }
 
@@ -142,11 +142,12 @@ h1 {
   border: 2px solid rgba(10, 21, 30, 0.1);
   background: #fff;
   color: var(--ink);
-  padding: 0.9rem 1rem;
+  padding: 1rem 1.1rem;
   border-radius: 14px;
   cursor: pointer;
   font: inherit;
   font-weight: 600;
+  font-size: 1.05rem;
   transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
 }
 
@@ -258,7 +259,7 @@ h1 {
 
 .fact-text {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   line-height: 1.5;
   color: var(--ink);
@@ -295,6 +296,7 @@ h1 {
 
 .team-impact-text {
   font-weight: 600;
+  font-size: 1.05rem;
   line-height: 1.45;
   color: var(--ink);
 }
